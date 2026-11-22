@@ -1,10 +1,4 @@
-<!doctype html><html><head>
-<link rel="manifest" href="./manifest.webmanifest">
-<link rel="icon" href="./icon.svg" type="image/svg+xml">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="MEC 314">
-<meta name="theme-color" content="#1D4ED8"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Simulador MEC 314</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap">
@@ -401,13 +395,12 @@ ul.lx-obj .h{display:block;color:var(--bad);font-size:.84rem;margin-top:2px}
 .lx-help{position:absolute;left:10px;bottom:10px;right:192px;font:12px var(--font-b);color:#fff;background:rgba(20,22,25,.62);padding:5px 9px;border-radius:8px;pointer-events:none;z-index:2}
 .lx-main{display:flex;flex-direction:column;gap:14px;min-width:0}
 .lx-msel{display:none;gap:4px;flex-direction:column}
-.lx-mpal{display:none;gap:10px;align-items:center;flex-wrap:wrap;margin:8px 0}
 .lx-msel select{font:500 15px var(--font-b);padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
 .lx-circ h3{margin:2px 0 6px}
 .lx-circ .fig svg{width:100%;height:auto}
 .lx-eq{display:flex;flex-wrap:wrap;gap:6px 8px;margin:6px 0 2px}
 .lx-eq span{background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:4px 9px;font-size:14px}
-@media (max-width:1099px){.lx-main{order:-1}.lx-msel{display:flex}.lx-mpal{display:flex}}
+@media (max-width:1099px){.lx-main{order:-1}.lx-msel{display:flex}}
 @media (max-width:640px){.lx-cam{height:62vh}.lx-cam svg.lx-mini{width:110px;max-height:72px}.lx-help{right:130px;font-size:10.5px}}
 .lx svg .c-panel{fill:var(--card);stroke:var(--line)}
 .lx svg .c-machine{fill:#2f8f5b;stroke:#226b44;stroke-width:2}
@@ -6313,7 +6306,6 @@ const LX = (() => {
       '<label class="chk"><input type="checkbox" id="lx-int"' + (loc.internal ? ' checked' : '') + '> Mostrar devanados internos (ayuda)</label><div id="lx-msg"></div>' +
       '<p class="small muted">Muévete por el laboratorio: arrastra la pared o el piso, acércate con la rueda, el pellizco o los botones + y −, o salta a una estación. Para tender un cable, arrastra de un borne a otro (o toca un borne y luego el otro); toca un cable para quitarlo.</p></aside>' +
       '<div class="lx-main"><label class="lx-msel"><span class="eyebrow">Conexión</span><select id="lx-msel" aria-label="Elegir conexión">' + MISSIONS.map((x, i) => '<option value="' + i + '"' + (i === loc.mission ? ' selected' : '') + '>' + (isDone(x.id) ? '✓ ' : (i + 1) + '. ') + esc(x.name.replace(/^Nuevo · /, '')) + '</option>').join('') + '</select></label>' +
-      '<div class="lx-mpal"><span class="eyebrow">Color del cable</span><div class="lx-pal">' + COLORS.map(([c, n]) => '<button title="' + n + '" aria-label="' + n + '" data-act="lx-color" data-c="' + c + '" class="' + (c === loc.color ? 'on' : '') + '" style="background:' + c + '"></button>').join('') + '</div></div>' +
       '<div class="lx-board card"><div class="lx-stations" role="toolbar" aria-label="Moverse por el laboratorio">' + STATIONS[m.board].map((s2, i) => '<button class="chip' + (i === 0 ? ' on' : '') + '" data-act="lx-go" data-s="' + i + '">' + s2[0] + '</button>').join('') + '</div>' +
       '<div class="lx-cam" id="lx-cam"><svg id="lx-svg" xmlns="http://www.w3.org/2000/svg"></svg>' +
       '<div class="lx-zoom"><button data-act="lx-zoom" data-z="0.8" aria-label="Acercar">+</button><button data-act="lx-zoom" data-z="1.25" aria-label="Alejar">−</button></div>' +
@@ -8861,5 +8853,4 @@ IA.init();
 
 </script>
 
-<script>if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));</script>
 </body></html>
